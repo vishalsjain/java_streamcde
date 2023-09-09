@@ -10,5 +10,7 @@ public class OptionalIfIsExample {
             System.out.println("stringOptional = " + stringOptional);
 
         stringOptional.ifPresent(s -> System.out.println("s = " + s));
+
+
     }
 }

@@ -15,5 +15,20 @@ public class MapExample {
                                         .map(String::toUpperCase)
                                         .collect(Collectors.toSet());
         System.out.println(instructorNames);
+
+
+    //VishalJain
+        System.out.println("-----------");
+        List<String> names=Instructors.getAll().stream()
+                .map(Instructor::getName)
+                .peek(System.out::println)
+                .collect(Collectors.toList());
+        System.out.println("names:"+names);
+
+        Instructors.getAll().stream()
+                .mapToInt(Instructor::getYearsOfExperience).peek(System.out::println)
+                .forEach(s-> System.out.println("loop:"+s));
+
+
     }
 }

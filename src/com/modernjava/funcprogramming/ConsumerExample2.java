@@ -33,9 +33,24 @@ public class ConsumerExample2 {
         System.out.println("--------------");
         instructors.forEach(s1->{
             if (s1.yearsOfExperience > 5 && !s1.isOnlineCourses()){
-                c1.andThen(c2).accept(s1);
+                c1.andThen(c2).accept(s1);//Very Imp
             }
         });
+
+
+      /////////////
+        Consumer<Instructor> c6=a-> {
+            if (a.isOnlineCourses()){
+                System.out.println(a);
+            }
+        };
+        Consumer<Instructor> c5=a-> {
+            if (a.yearsOfExperience>5){
+               // System.out.println(a);
+            }
+        };
+        System.out.println("---VISHAL-");
+        instructors.forEach(c5.andThen(c6));
 
 
 

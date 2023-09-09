@@ -5,7 +5,7 @@ public class HelloWorldLambda {
         //implementing sayHelloWorld Using Lambda
         HelloWorldInterface helloWorldInterface = () -> "Hello World";
 
-
         System.out.println(helloWorldInterface.sayHelloWorld());
+        System.out.printf(helloWorldInterface.toString());
     }
 }

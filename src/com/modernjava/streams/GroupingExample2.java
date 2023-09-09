@@ -21,6 +21,19 @@ public class GroupingExample2 {
 
         //instructor grouping them by Senior(>10) and Junior(<10) and filter them
         //on online courses
+
+        Instructors.getAll().stream()
+                .collect(Collectors.groupingBy(
+                  a->a.getYearsOfExperience()>10?"Senior":"Junior"
+                ,Collectors.filtering(s->s.isOnlineCourses(),Collectors.mapping(Instructor::getName,
+                                Collectors.toList()))))
+                .forEach((a,b)-> System.out.println(a+"**vishal**"+b)
+                );
+
+
+
+
+
         Map<String, List<Instructor>> instructorByExpAndOnline = Instructors.getAll()
                 .stream().collect(Collectors.groupingBy(instructor ->
                         instructor.getYearsOfExperience()>10 ? "SENIOR": "JUNIOR",

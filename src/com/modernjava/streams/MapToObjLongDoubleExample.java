@@ -9,6 +9,7 @@ import java.util.stream.LongStream;
 
 public class MapToObjLongDoubleExample {
     public static void main(String[] args) {
+
         List<RandomIds> randomIds = IntStream.rangeClosed(0,5)
                 .mapToObj((i) -> {
                     return new RandomIds(i, ThreadLocalRandom.current().nextInt(100));

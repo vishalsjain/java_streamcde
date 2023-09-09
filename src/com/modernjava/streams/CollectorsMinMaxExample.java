@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 public class CollectorsMinMaxExample {
     public static void main(String[] args) {
         //instructor with minimum years of experience
+        Instructors.getAll().stream().mapToInt(Instructor::getYearsOfExperience).min().getAsInt()
+                ;
+        Instructors.getAll().stream().sorted(Comparator.comparing(Instructor::getYearsOfExperience)).limit(1);
         Optional<Instructor> instructor = Instructors.getAll().stream()
                 .collect(Collectors.minBy(Comparator.comparing(
                         Instructor::getYearsOfExperience)));

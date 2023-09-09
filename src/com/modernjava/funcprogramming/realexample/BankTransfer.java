@@ -10,8 +10,8 @@ import java.util.function.BiPredicate;
 public class BankTransfer {
     public static void main(String[] args) {
         AccountFactory accountFactory = BankAccount::new;
-        BankAccount studentBankAccount = accountFactory.getBankAccount(1, 50000, "StudentA");
-        BankAccount universityBankAccount = accountFactory.getBankAccount(2, 100000, "University");
+        BankAccount studentBankAccount = accountFactory.getBankAccount(1, 1000, "StudentA");
+        BankAccount universityBankAccount = accountFactory.getBankAccount(2, 2000, "University");
 
         BiPredicate<Double, Double> p1 = (balance, amount) -> balance > amount;
         BiConsumer<String, Double> printer = (x, y) -> System.out.println(x + y);
@@ -24,7 +24,7 @@ public class BankTransfer {
         Thread t1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + " says :: Executing Transfer");
             try {
-                double amount = 1000;
+                double amount = 100;
                 if (!p1.test(studentBankAccount.getBalance(), amount)) {
                     printer.accept(Thread.currentThread().getName() + "says :: balance insufficient, ", amount);
                     return;
@@ -51,6 +51,7 @@ public class BankTransfer {
             }
         } catch (InterruptedException iee) {
             iee.printStackTrace();
+
         }
         printer2.accept(studentBankAccount, universityBankAccount);
     }

@@ -16,12 +16,15 @@ public class CollectorMappingExample {
         namesList.forEach(System.out::println);
 
         //mapping
+        System.out.println("1111");
         namesList= Instructors.getAll().stream()
                 .collect(Collectors.mapping(Instructor::getName, Collectors.toList()));
 
         namesList.forEach(System.out::println);
 
-        //Instructors by their years of experience
+        //Instructors by their gorup years of experience
+
+
         Map<Integer, List<String>> mapYearsOfExperienceAndNames = Instructors.getAll().stream()
                 .collect(Collectors.groupingBy(Instructor::getYearsOfExperience,
                         Collectors.mapping(Instructor::getName, Collectors.toList())));

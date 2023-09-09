@@ -16,7 +16,7 @@ public class PredicateExample2 {
                 System.out.println(instructor);
             }
         });
-
+instructors.stream().filter(a->p1.and(p2).test(a)).forEach(a-> System.out.println("**"+a));
         // is instructor teaches online and exprience is > 10 years
         System.out.println("---------------------");
         instructors.forEach(instructor ->  {
