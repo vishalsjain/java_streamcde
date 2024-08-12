@@ -10,7 +10,7 @@ public class HttpClientExample {
     public static void main(String[] args) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.ldapsoft.com"))
+                .uri(URI.create("http://www.google.com"))
                 .build();
         
         HttpResponse<String> response = client.send(

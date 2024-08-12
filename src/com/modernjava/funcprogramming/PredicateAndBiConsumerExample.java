@@ -1,9 +1,12 @@
 package com.modernjava.funcprogramming;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class PredicateAndBiConsumerExample {
     public static void main(String[] args) {
@@ -30,5 +33,17 @@ Predicate<Instructor> p5= a->a.isOnlineCourses();
                 a-> c6.accept(a.getName(),a.getCourses())
         );
 
+
+        int[] a=new int[5];
+        a[0]=1;
+        a[1]=2;
+        a[2]=2;
+        a[3]=3;
+Arrays.stream(a).distinct().forEach(d->
+        System.out.println(d));
+
+
     }
+
+
 }

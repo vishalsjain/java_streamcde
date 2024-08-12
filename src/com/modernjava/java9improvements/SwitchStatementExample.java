@@ -8,9 +8,6 @@ public class SwitchStatementExample {
             case "JANUARY":
                 quarter = "FIRST QUARTER";
                 break;
-            case "FEBURARY":
-                quarter = "FIRST QUARTER";
-                break;
             case "MARCH":
                 quarter = "FIRST QUARTER";
                 break;

@@ -13,6 +13,14 @@ public class PartitioningByExample {
     public static void main(String[] args) {
         //partition instructors in two groups of instructor
         //first is years of experience is > 10 and other is <=10
+        Instructors.getAll().stream().collect(
+                Collectors.groupingBy(i->
+                {
+                    return i.getYearsOfExperience()>10;
+                })
+        ).forEach((aBoolean, instructors) ->
+                System.out.println(":"+aBoolean+":"+instructors));
+
             Predicate<Instructor> experiencePredicate = instructor ->
                 instructor.getYearsOfExperience()>10;
         Map<Boolean, List<Instructor>> partitionMap = Instructors.getAll()

@@ -13,7 +13,10 @@ public class ComparatorExample {
         Book book4 = new Book ("C++ Programming", 25.25f);
 
         List<Book> listBooks = Arrays.asList(book1, book2,book3,book4);
-
+listBooks.stream().sorted(Comparator.comparing(Book::getPrice)).forEach(
+        book -> System.out.println(book)
+);
+        System.out.println("----");
         //Comparator using traditional way
         Comparator<Book> priceComparator = new Comparator<Book>() {
             @Override

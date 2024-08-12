@@ -18,7 +18,11 @@ public class Instructor {
         this.onlineCourses = onlineCourses;
         this.courses = courses;
     }
+    public Instructor(String name, String gender) {
+        this.name = name;
 
+        this.gender = gender;
+      }
 
     @Override
     public String toString() {

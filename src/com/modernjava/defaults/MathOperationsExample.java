@@ -1,5 +1,8 @@
 package com.modernjava.defaults;
 
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
 public class MathOperationsExample implements Calculator {
 
     public static void main(String[] args) {
@@ -13,6 +16,8 @@ public class MathOperationsExample implements Calculator {
         System.out.println("Subtract: " + mathOperationsExample.subtract(4,2));
         System.out.println("Multiply: " + Calculator.multiply(4,2));
 
+        BiFunction<Integer,Integer,Integer> f=(Integer num1,Integer num2) -> num1%num2;
+        System.out.println(f.apply(3,2));
     }
 
 

@@ -1,7 +1,7 @@
 package com.modernjava.defaults;
 
 public interface Calculator {
-    //abstract sum method
+     //abstract sum method
     public int sum(int num1, int num2);
 
     //default method which is subtract

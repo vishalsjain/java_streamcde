@@ -32,5 +32,6 @@ public class RunnableExample {
             System.out.println("Thread Lambda: " + sum);
 
         }).start();
+
     }
 }

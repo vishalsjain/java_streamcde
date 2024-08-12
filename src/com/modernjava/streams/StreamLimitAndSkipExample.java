@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class StreamLimitAndSkipExample {
     public static void main(String[] args) {
         List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8);
+        numbers=List.of(1,2,3,4,5,6,7,8);
         List limit5numbers = numbers.stream().limit(5).collect(Collectors.toList());
         limit5numbers.forEach(System.out::println);
 

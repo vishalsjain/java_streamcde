@@ -12,6 +12,7 @@ public class GroupingExample2 {
         //grouping by length of string and also checking that the names contains e
         //and only return those name which has e in it
         List<String> name = List.of("Sid", "Mike", "Jenny", "Gene", "Rajeev");
+
         Map<Integer, List<String>> result = name.stream()
                 .collect(Collectors.groupingBy(String::length, Collectors
                         .filtering(s-> s.contains("e"),Collectors.toList())));

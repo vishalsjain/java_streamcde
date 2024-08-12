@@ -13,6 +13,15 @@ public class GroupingMinMaxAvgExample {
     public static void main(String[] args) {
         //grouping the instructors in two sets of online course vs not online
         //and get the max years of experience of the instructors
+
+        Instructors.getAll().stream().
+        collect(Collectors.partitioningBy(Instructor::isOnlineCourses,
+                Collectors.maxBy(Comparator.comparing(Instructor::getYearsOfExperience))))
+                .forEach(
+                        (aBoolean, instructor) -> System.out.println(aBoolean+":"+instructor)
+                );
+
+
         Instructors.getAll().stream().
                 collect(Collectors.groupingBy(
                     a->a.isOnlineCourses()?"Online":"Offline",
@@ -22,14 +31,6 @@ public class GroupingMinMaxAvgExample {
                 .forEach((a,b)-> System.out.println(a+"**vishal**"+b));
 
 
-
-        Map<Boolean, Optional<Instructor>> maxInstructors = Instructors.getAll()
-                .stream().collect(Collectors.groupingBy(Instructor::isOnlineCourses,
-                        Collectors.maxBy(Comparator.comparing
-                                (Instructor::getYearsOfExperience))));
-
-        maxInstructors.forEach((key, value) ->
-                System.out.println("key = " + key + " value = " + value));
         System.out.println("---------");
 
         //collectingAndThen
@@ -60,9 +61,10 @@ public class GroupingMinMaxAvgExample {
                 .stream().collect(Collectors.groupingBy(Instructor::isOnlineCourses,
                         Collectors.summarizingInt(Instructor::getYearsOfExperience)
                 ));
-        System.out.println("---------");
+        System.out.println("---4------");
         maxInstructors3.forEach((key, value) ->
                 System.out.println("key = " + key + " value = " + value));
+
 
 
 

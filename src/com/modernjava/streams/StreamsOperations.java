@@ -40,8 +40,7 @@ public class StreamsOperations {
 
 
         boolean match = Instructors.getAll().stream()
-                .map(Instructor::getCourses)
-                .flatMap(List::stream)
+                .flatMap(instructor -> instructor.getCourses().stream())
                 .noneMatch(s -> s.startsWith("J"));
         System.out.println("&****");
         System.out.println(match);

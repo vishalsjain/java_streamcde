@@ -20,7 +20,8 @@ public class StreamComparatorExample {
 
         //vishaljain
         System.out.println("---");
-        List<Instructor> list1=Instructors.getAll().stream().sorted(Comparator.comparing(Instructor::getName))
+        List<Instructor> list1=Instructors.getAll().stream().sorted
+                        (Comparator.comparing(Instructor::getName))
                 .collect(Collectors.toList());
         list1.forEach(System.out::println);
 
@@ -33,6 +34,11 @@ public class StreamComparatorExample {
                 })
                 .collect(Collectors.toList());
         list2.forEach(System.out::println);
+        Instructors.getAll().stream().sorted(
+                (o1, o2) -> Math.toIntExact((o1.getCourses().stream().count() -
+                        o2.getCourses().stream().count()))
+        ).forEach(instructor -> System.out.println("**"+instructor)
+        );
 
         System.out.println("--3-");//getMap obeject
         Map<String, List<String>> map=Instructors.getAll().stream().
@@ -75,12 +81,13 @@ public class StreamComparatorExample {
                         stringInstructorEntry.getKey()
                 ));
         collect.entrySet().stream().sorted(Map.Entry.
-                        comparingByValue(
-                                Comparator.comparing(Instructor::getName)
-                        ))
+                        comparingByValue(Comparator.comparing(Instructor::getName)))
                 .forEach(stringInstructorEntry -> System.out.println(
                         stringInstructorEntry.getKey()
                 ));
+        collect.entrySet().stream().sorted(Map.Entry.
+                comparingByValue(Comparator.comparing(instructor -> instructor.getCourses().size()))
+        ).forEach(stringInstructorEntry -> System.out.println(stringInstructorEntry.getValue()));
 
     }
 }

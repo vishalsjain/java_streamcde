@@ -13,6 +13,9 @@ public class StreamMapFilterReduceExample {
 
         System.out.println(result);
 
-
+        System.out.println(Instructors.getAll().stream()
+                .filter(Instructor::isOnlineCourses)
+                .mapToInt(Instructor::getYearsOfExperience)
+                .sum());
     }
 }

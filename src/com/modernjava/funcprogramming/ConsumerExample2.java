@@ -2,6 +2,7 @@ package com.modernjava.funcprogramming;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class ConsumerExample2 {
     public static void main(String[] args) {
@@ -31,6 +32,13 @@ public class ConsumerExample2 {
         //Loop through all the instructors and print out their name and years of experience if years
         //of experience is >5 and teaches course online
         System.out.println("--------------");
+        Predicate<Instructor> a11= x->x.getYearsOfExperience()>5;
+        Predicate<Instructor> a12= x->x.isOnlineCourses();
+        instructors.forEach(x-> {
+            if (a11.and(a12).test(x))
+                c1.andThen(c2).accept(x);
+        });
+        System.out.println("-------after-------");
         instructors.forEach(s1->{
             if (s1.yearsOfExperience > 5 && !s1.isOnlineCourses()){
                 c1.andThen(c2).accept(s1);//Very Imp

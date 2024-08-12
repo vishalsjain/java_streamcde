@@ -10,11 +10,9 @@ public class DefaultsStaticExample {
         List<String> names = Arrays.asList("Mike", "Syed", "Jenny", "Gene", "Rajeev");
        // Collections.sort(names);
         //System.out.println("names = " + names);
-        
+
         names.sort(Comparator.naturalOrder());
         System.out.println("names = " + names);
-        
-        
-                
+
     }
 }

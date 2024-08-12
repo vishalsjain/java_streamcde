@@ -5,7 +5,8 @@ import com.modernjava.funcprogramming.Instructors;
 
 import java.util.stream.Collectors;
 
-public class CountingExample {
+public class
+CountingExample {
     public static void main(String[] args) {
         //count the numbers of instructors who teaches online courses
         //stream.count

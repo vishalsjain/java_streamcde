@@ -5,7 +5,6 @@ import java.util.List;
 public class ConstructorExampleFunctional {
 
     public static void main(String[] args) {
-
         //Implementation via basic function
         InstructorFunctionalInterface inst=(String name, int yearsOfExperience, String title, String gender,
                                             boolean onlineCourses, List<String> courses)->
